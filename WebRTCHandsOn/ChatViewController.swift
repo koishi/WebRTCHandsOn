@@ -14,9 +14,9 @@ class ChatViewController: UIViewController {
 
     var websocket: WebSocket! = nil
     var peerConnectionFactory: RTCPeerConnectionFactory! = nil
+    var peerConnection: RTCPeerConnection! = nil
     var audioSource: RTCAudioSource?
     var videoSource: RTCAVFoundationVideoSource?
-    var peerConnection: RTCPeerConnection! = nil
 
     @IBOutlet weak var videoView: RTCEAGLVideoView!
     @IBOutlet weak var cameraPreviewView: RTCCameraPreviewView!
@@ -40,14 +40,22 @@ class ChatViewController: UIViewController {
     }
 
     @IBAction func tappedCloseButton(_ sender: Any) {
+        // Closeボタンを押した時
+        hangUp()
         websocket.disconnect()
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func tappedConnectButton(_ sender: Any) {
+        // Connectボタンを押した時
+        if peerConnection == nil {
+            peerConnection = prepareNewConnection()
+        }
     }
     
     @IBAction func tappedHangUpButton(_ sender: Any) {
+        //HangUpボタンを押した時
+        hangUp()
     }
 
     func startVideo() {
@@ -105,7 +113,20 @@ class ChatViewController: UIViewController {
         return peerConnection
     }
 
+    func hangUp() {
+        if peerConnection != nil {
+            if peerConnection.iceConnectionState != RTCIceConnectionState.closed {
+                peerConnection.close()
+            }
+            peerConnection = nil
+            LOG("peerConnection is closed.")
+        }
+    }
+    
     deinit {
+        if peerConnection != nil {
+            hangUp()
+        }
         audioSource = nil
         videoSource = nil
         peerConnectionFactory = nil
@@ -154,6 +175,26 @@ extension ChatViewController: RTCPeerConnectionDelegate {
     func peerConnection(_ peerConnection: RTCPeerConnection,
                         didChange newState: RTCIceConnectionState) {
         // PeerConnectionの接続状況が変化した際に呼ばれます
+        var state = ""
+        switch (newState) {
+        case RTCIceConnectionState.checking:
+            state = "checking"
+        case RTCIceConnectionState.completed:
+            state = "completed"
+        case RTCIceConnectionState.connected:
+            state = "connected"
+        case RTCIceConnectionState.closed:
+            state = "closed"
+            hangUp()
+        case RTCIceConnectionState.failed:
+            state = "failed"
+            hangUp()
+        case RTCIceConnectionState.disconnected:
+            state = "disconnected"
+        default:
+            break
+        }
+        LOG("ICE connection Status has changed to \(state)")
     }
     
     func peerConnection(_ peerConnection: RTCPeerConnection,

@@ -20,7 +20,9 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        websocket = WebSocket(url: URL(string: "wss://conf.space/WebRTCHandsOnSig/koishi")!)
+        websocket.delegate = self
+        websocket.connect()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +31,7 @@ class ChatViewController: UIViewController {
     }
 
     @IBAction func tappedCloseButton(_ sender: Any) {
+        websocket.disconnect()
         _ = self.navigationController?.popToRootViewController(animated: true)
     }
     

@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="644" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="FN1-78-8Fl">
             <objects>
-                <viewController id="toj-2b-CRx" sceneMemberID="viewController">
+                <viewController id="toj-2b-CRx" customClass="ChatViewController" customModule="WebRTCHandsOn" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QX4-Hn-TXl"/>
                         <viewControllerLayoutGuide type="bottom" id="PRM-mG-fUV"/>
@@ -69,17 +69,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80R-6y-HZZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80R-6y-HZZ" customClass="RTCEAGLVideoView" customModule="WebRTCHandsOn" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KsL-4d-ps9">
                                 <rect key="frame" x="8" y="72" width="39" height="30"/>
                                 <state key="normal" title="Close"/>
+                                <connections>
+                                    <action selector="tappedCloseButton:" destination="toj-2b-CRx" eventType="touchUpInside" id="hmj-pD-Mx5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-T2-rjc">
                                 <rect key="frame" x="8" y="629" width="59" height="30"/>
                                 <state key="normal" title="Connect"/>
+                                <connections>
+                                    <action selector="tappedConnectButton:" destination="toj-2b-CRx" eventType="touchUpInside" id="Qt6-Od-8cM"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyx-iC-Ytc" customClass="RTCCameraPreviewView">
                                 <rect key="frame" x="271" y="72" width="96" height="96"/>
@@ -92,6 +98,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-9v-546">
                                 <rect key="frame" x="310" y="629" width="57" height="30"/>
                                 <state key="normal" title="HangUp"/>
+                                <connections>
+                                    <action selector="tappedHangUpButton:" destination="toj-2b-CRx" eventType="touchUpInside" id="bua-b5-Q7j"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -110,6 +119,10 @@
                             <constraint firstItem="80R-6y-HZZ" firstAttribute="top" secondItem="QX4-Hn-TXl" secondAttribute="bottom" id="sZU-lf-Yqh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraPreviewView" destination="kyx-iC-Ytc" id="MOu-oB-97g"/>
+                        <outlet property="videoView" destination="80R-6y-HZZ" id="EKC-oa-Pb9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA5-tb-xfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

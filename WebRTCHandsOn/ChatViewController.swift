@@ -36,4 +36,14 @@ class ChatViewController: UIViewController {
     }
     */
 
+    @IBAction func tappedCloseButton(_ sender: Any) {
+        _ = self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @IBAction func tappedConnectButton(_ sender: Any) {
+    }
+    
+    @IBAction func tappedHangUpButton(_ sender: Any) {
+    }
+    
 }

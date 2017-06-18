@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		824A4DD71EF623920007A33E /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A4DD61EF623920007A33E /* ChatViewController.swift */; };
-		824A4DD91EF626E60007A33E /* RTCEAGLVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A4DD81EF626E60007A33E /* RTCEAGLVideoView.swift */; };
 		8294816A1EF5F829006C8E5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829481691EF5F829006C8E5F /* AppDelegate.swift */; };
 		8294816C1EF5F829006C8E5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8294816B1EF5F829006C8E5F /* ViewController.swift */; };
 		8294816F1EF5F829006C8E5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8294816D1EF5F829006C8E5F /* Main.storyboard */; };
@@ -20,7 +19,6 @@
 /* Begin PBXFileReference section */
 		5B1B3C1F548738416ADDF4B6 /* Pods_WebRTCHandsOn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebRTCHandsOn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824A4DD61EF623920007A33E /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		824A4DD81EF626E60007A33E /* RTCEAGLVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTCEAGLVideoView.swift; sourceTree = "<group>"; };
 		829481661EF5F829006C8E5F /* WebRTCHandsOn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebRTCHandsOn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		829481691EF5F829006C8E5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8294816B1EF5F829006C8E5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				829481721EF5F829006C8E5F /* LaunchScreen.storyboard */,
 				829481751EF5F829006C8E5F /* Info.plist */,
 				824A4DD61EF623920007A33E /* ChatViewController.swift */,
-				824A4DD81EF626E60007A33E /* RTCEAGLVideoView.swift */,
 			);
 			path = WebRTCHandsOn;
 			sourceTree = "<group>";
@@ -219,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8294816C1EF5F829006C8E5F /* ViewController.swift in Sources */,
-				824A4DD91EF626E60007A33E /* RTCEAGLVideoView.swift in Sources */,
 				824A4DD71EF623920007A33E /* ChatViewController.swift in Sources */,
 				8294816A1EF5F829006C8E5F /* AppDelegate.swift in Sources */,
 			);

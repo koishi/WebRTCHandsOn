@@ -120,8 +120,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraPreviewView" destination="kyx-iC-Ytc" id="MOu-oB-97g"/>
-                        <outlet property="videoView" destination="80R-6y-HZZ" id="EKC-oa-Pb9"/>
+                        <outlet property="cameraPreview" destination="kyx-iC-Ytc" id="z17-Tm-wvJ"/>
+                        <outlet property="remoteVideoView" destination="80R-6y-HZZ" id="2x7-86-NRG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cA5-tb-xfe" userLabel="First Responder" sceneMemberID="firstResponder"/>

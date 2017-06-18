@@ -24,17 +24,6 @@ class ChatViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func tappedCloseButton(_ sender: Any) {
         _ = self.navigationController?.popToRootViewController(animated: true)
@@ -45,5 +34,11 @@ class ChatViewController: UIViewController {
     
     @IBAction func tappedHangUpButton(_ sender: Any) {
     }
-    
+
+    func LOG(_ body: String = "",
+             function: String = #function,
+             line: Int = #line) {
+        print("[\(function) : \(line)] \(body)")
+    }
+
 }

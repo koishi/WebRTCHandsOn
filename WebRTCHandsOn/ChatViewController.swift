@@ -8,9 +8,12 @@
 
 import UIKit
 import WebRTC
+import Starscream
 
 class ChatViewController: UIViewController {
 
+    var websocket: WebSocket! = nil
+    
     @IBOutlet weak var videoView: RTCEAGLVideoView!
     @IBOutlet weak var cameraPreviewView: RTCCameraPreviewView!
 
@@ -41,4 +44,21 @@ class ChatViewController: UIViewController {
         print("[\(function) : \(line)] \(body)")
     }
 
+}
+
+extension ChatViewController: WebSocketDelegate {
+    
+    func websocketDidConnect(socket: WebSocket) {
+        LOG()
+    }
+    func websocketDidDisconnect(socket: WebSocket,
+                                error: NSError?) {
+        LOG("error: \(String(describing: error?.localizedDescription))")
+    }
+    func websocketDidReceiveMessage(socket: WebSocket, text: String) {
+        LOG("message: \(text)")
+    }
+    func websocketDidReceiveData(socket: WebSocket, data: Data) {
+        LOG("data.count: \(data.count)")
+    }
 }

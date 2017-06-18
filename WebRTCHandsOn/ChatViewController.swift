@@ -13,12 +13,18 @@ import Starscream
 class ChatViewController: UIViewController {
 
     var websocket: WebSocket! = nil
-    
+    var peerConnectionFactory: RTCPeerConnectionFactory! = nil
+    var audioSource: RTCAudioSource?
+    var videoSource: RTCAVFoundationVideoSource?
+
     @IBOutlet weak var videoView: RTCEAGLVideoView!
     @IBOutlet weak var cameraPreviewView: RTCCameraPreviewView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // RTCPeerConnectionFactoryの初期化
+        peerConnectionFactory = RTCPeerConnectionFactory()
 
         websocket = WebSocket(url: URL(string: "wss://conf.space/WebRTCHandsOnSig/koishi")!)
         websocket.delegate = self
@@ -41,6 +47,10 @@ class ChatViewController: UIViewController {
     @IBAction func tappedHangUpButton(_ sender: Any) {
     }
 
+    func startVideo() {
+
+    }
+    
     func LOG(_ body: String = "",
              function: String = #function,
              line: Int = #line) {
